@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>New - Article </title>
+</head>
+
+<body>
+    <h1>Create Article</h1>
+    <form action={{route("news_store")}} method="post">
+        {{ csrfField() }}
+        <input type="text" class="title" name="title" placeholder="Article Title">
+        @if(flashMessages.has('errors.title'))
+        <p> {{ flashMessages.get('errors.title') }} </p>
+        @end
+
+        <input type="file" name="image" id="">
+        <textarea name="content" id="" cols="30" rows="10" placeholder="Article Content"></textarea>
+        @if(flashMessages.has('errors.content'))
+        <p> {{ flashMessages.get('errors.content') }} </p>
+        @end
+        <button type="submit">Create</button>
+    </form>
+
+</body>
+
+</html>
